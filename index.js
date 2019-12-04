@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 const MongoClient = require('mongodb').MongoClient;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors);
 
 const url = 'mongodb+srv://kolimayurs:29031991@cluster0-onizc.mongodb.net';
 
