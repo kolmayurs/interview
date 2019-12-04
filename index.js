@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
                 return res.send(err);
             } else {
                 return res.json({
-                    data: [result]
+                    data: result
                 })
             }
             db.close();
