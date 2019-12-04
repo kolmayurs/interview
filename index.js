@@ -2,12 +2,10 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
-const PORT = process.env.PORT || 3000;
 const MongoClient = require('mongodb').MongoClient;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors);
+app.use(cors());
 
 const url = 'mongodb+srv://kolimayurs:29031991@cluster0-onizc.mongodb.net';
 
@@ -84,6 +82,7 @@ app.post('/update', (req, res) => {
         });
     });
 });
-app.listen(PORT, () => {
-    console.log('App listen to ' + PORT + ' Port.');
+var port=Number(process.env.PORT || 4000);
+app.listen(port, () => {
+	console.log('Product server listing from port ' + port);
 })
